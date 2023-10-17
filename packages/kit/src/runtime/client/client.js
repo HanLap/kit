@@ -1391,7 +1391,7 @@ export function create_client(app, target) {
 
 		invalidate_all: () => {
 			force_invalidation = true;
-			return invalidate();
+			return invalidate().finally(() => (force_invalidation = false));
 		},
 
 		preload_data: async (href) => {
